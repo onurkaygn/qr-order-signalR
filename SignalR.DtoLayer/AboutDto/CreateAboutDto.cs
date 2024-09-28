@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.AboutDto
 {
-    internal class CreateAboutDto
+    public class CreateAboutDto
     {
+        public string ImageUrl { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

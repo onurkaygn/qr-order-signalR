@@ -12,6 +12,10 @@ namespace SignalR.BusinessLayer.Concrete
     public class DiscountManager : IDiscountService
     {
         private readonly IDiscountDal _discountDal;
+        public DiscountManager(IDiscountDal discountDal)
+        {
+            _discountDal = discountDal;
+        }
         public void TAdd(Discount entity)
         {
             _discountDal.Add(entity);
