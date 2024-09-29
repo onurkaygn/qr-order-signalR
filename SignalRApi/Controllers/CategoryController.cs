@@ -7,6 +7,7 @@ using SignalR.EntityLayer.DAL.Entities;
 
 namespace SignalRApi.Controllers
 {
+    //API CATEGORY CONTROLLER
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase

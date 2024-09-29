@@ -1,0 +1,60 @@
+﻿@model UpdateProductDto
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Product Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Product Page</div>
+                        </div>
+                        <input type="hidden" asp-for="ProductID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="productname">Please Enter the Product Name</label>
+                                <input type="text" class="form-control" asp-for="ProductName" id="productname">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="price">Please Enter the Price</label>
+                                <input type="text" class="form-control" asp-for="Price" id="price">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="imageurl">Please Upload the Image</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="imageurl">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="price">Please Choose the Category</label>
+                                @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="description">Please Enter the Description</label>
+                                <input type="text" class="form-control" asp-for="Description" id="description">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Add Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

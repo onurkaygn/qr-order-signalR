@@ -9,6 +9,7 @@ using SignalR.EntityLayer.DAL.Entities;
 
 namespace SignalRApi.Controllers
 {
+    //API PRODUCT CONTROLLER
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase
@@ -29,6 +30,14 @@ namespace SignalRApi.Controllers
             return Ok(value);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetProduct(int id)
+        {
+            var value = _productService.TGetByID(id);
+            return Ok(value);
+
+        }
+
         [HttpGet("ProductListWithCategory")]
         public IActionResult ProductListWithCategory() {
             var context = new SignalRContext();
@@ -40,7 +49,7 @@ namespace SignalRApi.Controllers
                 ProductID = y.ProductID,
                 ProductName = y.ProductName,
                 ProductStatus = y.ProductStatus,
-                CategoryName = y.Category.CategoryName,
+                CategoryName = y.Category.CategoryName
             }).ToList();
             return Ok(values.ToList());
         }
@@ -49,18 +58,12 @@ namespace SignalRApi.Controllers
         [HttpPost]
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
-            _productService.TAdd(new Product()
-            {
-               Description = createProductDto.Description,
-               ImageUrl = createProductDto.ImageUrl,
-               Price = createProductDto.Price,
-               ProductName = createProductDto.ProductName,
-               ProductStatus = createProductDto.ProductStatus,
-            });
+            var value = _mapper.Map<Product>(createProductDto);
+            _productService.TAdd(value);
             return Ok("Product has been created successfully.");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetByID(id);
@@ -71,24 +74,11 @@ namespace SignalRApi.Controllers
         [HttpPut]
         public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            _productService.TUpdate(new Product()
-            {
-                ProductID = updateProductDto.ProductID,
-                Description = updateProductDto.Description,
-                ImageUrl = updateProductDto.ImageUrl,
-                Price = updateProductDto.Price,
-                ProductName = updateProductDto.ProductName,
-                ProductStatus = updateProductDto.ProductStatus,
-            });
+            var value = _mapper.Map<Product>(updateProductDto);
+            _productService.TUpdate(value);
             return Ok("Product has been updated successfully.");
         }
 
-        [HttpGet("GetProduct")]
-        public IActionResult GetProduct(int id)
-        {
-            var value = _productService.TGetByID(id);
-            return Ok(value);
-
-        }
+        
     }
 }
