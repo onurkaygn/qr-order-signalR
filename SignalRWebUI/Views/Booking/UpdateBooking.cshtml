@@ -1,0 +1,60 @@
+﻿@model UpdateBookingDto
+
+@{
+    ViewData["Title"] = "UpdateBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Booking Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Add New Booking</div>
+                        </div>
+                        <input type="hidden" asp-for="BookingID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Name Surname</label>
+                                <input type="text" class="form-control" asp-for="Name" id="name">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="number" class="form-control" asp-for="Phone" id="phone">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="mail">E-Mail</label>
+                                <input type="email" class="form-control" asp-for="Mail" id="mail">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="personcount">Count of Person</label>
+                                <input type="number" class="form-control" asp-for="PersonCount" id="personcount">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="date">Reservation Date</label>
+                                <input type="date" class="form-control" asp-for="Date" id="date">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Update Reservation</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
