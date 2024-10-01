@@ -36,8 +36,8 @@
                                         <td>@item.AboutID</td>
                                         <td>@item.Title</td>
                                         <td>@item.Description</td>
-                                        <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Delete</a></td>
-                                        <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-warning">Update</a></td>
+                                        <td>@Html.ActionLink("Delete", "DeleteAbout", "About", new { id = @item.AboutID }, new { @class = "btn btn-danger" })</td>
+                                        <td>@Html.ActionLink("Update", "UpdateAbout", "About", new { id = @item.AboutID }, new { @class = "btn btn-warning" })</td>
                                     </tr>
                                 }
                             </tbody>

@@ -44,8 +44,8 @@
                                         <td>@item.PersonCount</td>
                                         <td>@item.Date.ToString("dd.MM.yyyy")</td>
                                         <td>Reservation Accepted</td>
-                                        <td><a href="/Booking/DeleteBooking/@item.BookingID" class="btn btn-outline-danger">Delete</a></td>
-                                        <td><a href="/Booking/UpdateBooking/@item.BookingID" class="btn btn-outline-warning">Update</a></td>
+                                        <td>@Html.ActionLink("Delete", "DeleteBooking", "Booking", new { id = @item.BookingID }, new { @class = "btn btn-danger" })</td>
+                                        <td>@Html.ActionLink("Update", "UpdateBooking", "Booking", new { id = @item.BookingID }, new { @class = "btn btn-warning" })</td>
                                     </tr>
                                 }
                             </tbody>

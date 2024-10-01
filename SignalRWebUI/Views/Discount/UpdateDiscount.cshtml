@@ -1,0 +1,54 @@
+﻿@model UpdateDiscountDto
+
+@{
+    ViewData["Title"] = "UpdateDiscount";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Discount of the Day Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Existing Discounted Product</div>
+                        </div>
+                        <input type="hidden" asp-for="DiscountID" />
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title">Please Enter the New Title of Product</label>
+                                <input type="text" class="form-control" asp-for="Title" id="title">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="amount">Please Enter the New Discount Percentage of Product</label>
+                                <input type="text" class="form-control" asp-for="Amount" id="amount">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="image">Please Upload the New Image</label>
+                                <input type="text" class="form-control" asp-for="ImageUrl" id="image">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="description">Please Enter the New Category Name</label>
+                                <input type="text" class="form-control" asp-for="Description" id="description">
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-primary">Update Discounted Product</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
