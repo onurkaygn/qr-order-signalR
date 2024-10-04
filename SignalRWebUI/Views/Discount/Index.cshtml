@@ -1,32 +1,29 @@
-﻿@model List<ResultDiscountDto>
-
+﻿@model List<SignalRWebUI.Dtos.DiscountDtos.ResultDiscountDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-
-
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Discount of the Day Settings</h4>
+        <h4 class="page-title">Discount Settings</h4>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">List of Discounts</div>
+                        <div class="card-title">List of Discount</div>
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            You can handle the sales-related tasks below. You can only create 2 discounts field.
+                            You can handle the discount-related tasks below.
                         </div>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Discount Percentage</th>
-                                    <th scope="col">Status</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Discount Rate</th>
+                                    <th scope="col">Discount Status</th>
                                     <th scope="col">Delete</th>
                                     <th scope="col">Update</th>
                                 </tr>
@@ -38,8 +35,11 @@
                                         <td>@item.DiscountID</td>
                                         <td>@item.Title</td>
                                         <td>@item.Amount</td>
+
+                                        <td>@Html.ActionLink("Status", "DeleteDiscount", "Discount", new { id = @item.DiscountID }, new { @class = "btn btn-secondary" })</td>
                                         <td>@Html.ActionLink("Delete", "DeleteDiscount", "Discount", new { id = @item.DiscountID }, new { @class = "btn btn-danger" })</td>
                                         <td>@Html.ActionLink("Update", "UpdateDiscount", "Discount", new { id = @item.DiscountID }, new { @class = "btn btn-warning" })</td>
+
                                     </tr>
                                 }
                             </tbody>

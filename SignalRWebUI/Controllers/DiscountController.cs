@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using SignalRWebUI.Dtos.DiscountDto;
+using SignalRWebUI.Dtos.DiscountDtos;
 using System.Text;
 
 namespace SignalRWebUI.Controllers
