@@ -1,0 +1,62 @@
+﻿@model List<ResultFeatureDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Feature Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">List of Features</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            You can handle the feature-related tasks below.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Title 1</th>
+                                    <th scope="col">Title 2</th>
+                                    <th scope="col">Title 3</th>
+                                    <th scope="col">Description 1</th>
+                                    <th scope="col">Description 2</th>
+                                    <th scope="col">Description 3</th>
+                                    <th scope="col">Delete</th>
+                                    <th scope="col">Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.FeatureID</td>
+                                        <td>@item.Title1</td>
+                                        <td>@item.Title2</td>
+                                        <td>@item.Title3</td>
+                                        <td>@item.Description1</td>
+                                        <td>@item.Description2</td>
+                                        <td>@item.Description3</td>
+
+                                        <td>@Html.ActionLink("Delete", "DeleteFeature", "Feature", new { id = @item.FeatureID }, new { @class = "btn btn-danger" })</td>
+                                        <td>@Html.ActionLink("Update", "UpdateFeature", "Feature", new { id = @item.FeatureID }, new { @class = "btn btn-warning" })</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Feature/CreateFeature" class="btn btn-outline-primary">Create a New Feature</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

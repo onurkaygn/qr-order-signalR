@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Testimonial Settings</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">List of Testimonial</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            You can handle the Testimonial-related tasks below.
+                        </div>
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name Surname</th>
+                                    <th scope="col">Status</th>
+
+                                    <th scope="col">Delete</th>
+                                    <th scope="col">Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.TestimonialID</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Status</td>
+
+                                        <td>@Html.ActionLink("Delete", "DeleteTestimonial", "Testimonial", new { id = @item.TestimonialID }, new { @class = "btn btn-danger" })</td>
+                                        <td>@Html.ActionLink("Update", "UpdateTestimonial", "Testimonial", new { id = @item.TestimonialID }, new { @class = "btn btn-warning" })</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Testimonial/CreateTestimonial" class="btn btn-outline-primary">Create a New Testimonial</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
